@@ -43,7 +43,7 @@ async def web_server():
     web_app.add_routes(routes)
     return web_app
 
-@bot.on_message(filters.command(["/start"]))
+@bot.on_message(filters.command(["start"]))
 async def account_login(bot: Client, m: Message):
     await m.reply_text(
        Ashu.START_TEXT, reply_markup=InlineKeyboardMarkup(
@@ -53,14 +53,14 @@ async def account_login(bot: Client, m: Message):
                     [
                     InlineKeyboardButton("🦋 𝐅𝐨𝐥𝐥𝐨𝐰 𝐌𝐞 🦋" ,url="https://t.me/AshuSupport") ]                               
             ]))
-@bot.on_message(filters.command("/stop"))
+@bot.on_message(filters.command("stop"))
 async def restart_handler(_, m):
     await m.reply_text("♦ 𝐒𝐭𝐨𝐩𝐩𝐞𝐭 ♦", True)
     os.execl(sys.executable, sys.executable, *sys.argv)
 
 
 
-@bot.on_message(filters.command(["/upload"]))
+@bot.on_message(filters.command(["upload"]))
 async def account_login(bot: Client, m: Message):
     editable = await m.reply_text('sᴇɴᴅ ᴍᴇ .ᴛxᴛ ғɪʟᴇ  ⏍')
     input: Message = await bot.listen(editable.chat.id)
